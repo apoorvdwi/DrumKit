@@ -1,24 +1,20 @@
-for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
+$(".drum").click(function() {
 
-  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
+  var buttonInnerHTML = this.innerHTML;
 
-    var buttonInnerHTML = this.innerHTML;
+  makesound(buttonInnerHTML);
 
-    makesound(buttonInnerHTML);
+  buttonAnimation(buttonInnerHTML);
 
-    buttonAnimation(buttonInnerHTML);
+});
 
-    });
-
-}
-
-document.addEventListener("keydown", function(event){
+$(document).keydown(function(event) {
 
   makesound(event.key);
 
   buttonAnimation(event.key);
 
-});
+})
 
 function makesound(key) {
   switch (key) {
@@ -57,7 +53,8 @@ function makesound(key) {
       kick.play();
       break;
 
-    default: console.log(key) ;
+    default:
+      console.log(key);
 
   }
 
